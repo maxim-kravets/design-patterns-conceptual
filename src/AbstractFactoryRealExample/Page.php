@@ -3,10 +3,8 @@
 namespace MaximKravets\DesignPatternsConceptual\AbstractFactoryRealExample;
 
 
-
 class Page
 {
-
     public string $title;
 
     public string $content;

@@ -6,8 +6,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 
 /**
- * Событие order.placed запускается каждый раз, когда создаётся заказ
- * в системе.
+ * order.placed event is triggered every time when order created.
  */
 class OrderPlacedEvent extends Event
 {

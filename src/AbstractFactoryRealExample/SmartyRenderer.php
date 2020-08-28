@@ -1,11 +1,7 @@
 <?php
 
-
 namespace MaximKravets\DesignPatternsConceptual\AbstractFactoryRealExample;
 
-
-use Twig\Environment;
-use Twig\Loader\ArrayLoader;
 
 class SmartyRenderer implements TemplateRendererInterface
 {

@@ -2,6 +2,7 @@
 
 namespace MaximKravets\DesignPatternsConceptual\ObserverExample;
 
+
 use SplObserver;
 use SplSubject;
 
