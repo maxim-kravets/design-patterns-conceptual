@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+use MaximKravets\DesignPatternsConceptual\ObserverExample\ConcreteObserverA;
+use MaximKravets\DesignPatternsConceptual\ObserverExample\ConcreteObserverB;
+use MaximKravets\DesignPatternsConceptual\ObserverExample\Subject;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$o1 = new ConcreteObserverA();
+$o2 = new ConcreteObserverB();
+$subject = new Subject();
+$subject->attach($o1);
+$subject->attach($o2);
+
+$subject->setState(5);

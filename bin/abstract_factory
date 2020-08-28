@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryExample\ConcreteFactory1;
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryExample\ConcreteFactory2;
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryExample\FactoryInterface;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+function clientCode(FactoryInterface $factory)
+{
+    $productA = $factory->createProductA();
+    $productB = $factory->createProductB();
+
+    echo $productB->usefulFunctionB() . "\n";
+    echo $productB->anotherUsefulFunctionB($productA) . "\n";
+}
+
+/**
+ * Client code can work with any type of factory
+ */
+echo "Client: Testing client code with the first factory type:\n";
+clientCode(new ConcreteFactory1());
+
+echo "\n";
+
+echo "Client: Testing the same client code with the second factory type:\n";
+clientCode(new ConcreteFactory2());

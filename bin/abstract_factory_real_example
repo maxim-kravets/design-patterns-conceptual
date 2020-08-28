@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryRealExample\Page;
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryRealExample\SmartyTemplateFactory;
+use MaximKravets\DesignPatternsConceptual\AbstractFactoryRealExample\TwigTemplateFactory;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$page = new Page('Twig page', 'Hello from Twig.');
+
+echo "Testing actual rendering with the TwigTemplate factory:\n";
+echo $page->render(new TwigTemplateFactory());
+
+$page = new Page('Smarty page', 'Hello from Smarty.');
+
+echo "Testing actual rendering with the SmartyTemplate factory:\n";
+echo $page->render(new SmartyTemplateFactory());
+
+$page = new Page('Blade page', 'Hello from Blade.');
+
+echo "Testing actual rendering with the BladeTemplate factory:\n";
+echo $page->render(new SmartyTemplateFactory());

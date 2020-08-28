@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use MaximKravets\DesignPatternsConceptual\ObserverRealExample\Order;
+use MaximKravets\DesignPatternsConceptual\ObserverRealExample\OrderListener;
+use MaximKravets\DesignPatternsConceptual\ObserverRealExample\OrderPlacedEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+
+$dispatcher = new EventDispatcher();
+$listener = new OrderListener();
+$dispatcher->addListener('order.placed', [$listener, 'logOrderPlaced']);
+
+$order = new Order('book(Code Da Vinci)', 20);
+$event = new OrderPlacedEvent($order);
+$dispatcher->dispatch($event, OrderPlacedEvent::NAME);
